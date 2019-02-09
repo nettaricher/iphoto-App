@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from  "react-router-dom";
-
+import Background from "./images/header_bg.jpg"
 class Header extends Component {
     active = {
         backgroundColor: "#212FD3",
@@ -10,7 +10,12 @@ class Header extends Component {
     header = {
         listStyle: "none",
         display: "flex",
-        justifyContent: "space-evenly"
+        justifyContent: "space-evenly",
+        backgroundImage: `url(${Background})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        width: "1300px",
+        height: "600px"
     };
     render(){
         return(
