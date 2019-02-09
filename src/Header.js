@@ -15,7 +15,7 @@ class Header extends Component {
     render(){
         return(
             <div style={this.header}>
-                <NavLink exact to="/" activeStyle={this.active}>
+                {/* <NavLink exact to="/" activeStyle={this.active}>
                     Home
                 </NavLink>
                 <NavLink exact to="/addTour" activeStyle={this.active}>
@@ -23,7 +23,8 @@ class Header extends Component {
                 </NavLink>
                 <NavLink exact to="/getBySportYear" activeStyle={this.active}>
                     Find Athletes by Sport and Year
-                </NavLink>
+                </NavLink> */}
+                header
             </div>
         );
     }

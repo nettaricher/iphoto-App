@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import Rated from '../Components/rated'
+import Liked from '../Components/liked'
+import All from '../Components/all'
 
 class mainPage extends Component {
   constructor(props) {
@@ -12,7 +15,9 @@ componentDidMount() {
 render() {
     return (
       <div>
-        TEST
+        <Rated/>
+        <Liked/>
+        <All/>
       </div>
     );
   }
