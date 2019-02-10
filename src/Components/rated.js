@@ -60,7 +60,7 @@ add({
         total_rate:   total_rate
         }]
     }))
-}
+  }
 
 // nextID(photos = []) {
 //     let max = photos.reduce((prev, curr) => prev.id > curr.id ? prev.id : curr.id , 0)
@@ -72,7 +72,7 @@ eachPhoto(photo, i) {
     return (
       <div
         key={ `container${i}` }
-        style = {{width: '380px', height: '380px', float: 'right', marginRight: '32px'}}
+        style = {{width: '300px', height: '300px', float: 'right', marginRight: '35px'}}
       >
         {/* <div style={ {width: '30px', height: '30px', float: 'right'} }>
             <p><b>URL:         </b>{photo.URL}</p>
@@ -99,7 +99,7 @@ render() {
     return (
       <div style = {{width: '1300px', height: '1296px'}}>
         <h2 style = {{color: '#1abc9c', fontFamily: 'ariel', textAlign: 'center', padding: '20px', fontSize: '30px'}}>Most Rated</h2>
-        <div style = {{paddingTop: '40px', paddingRight: '15px'}}>
+        <div style = {{paddingTop: '40px', paddingRight: '100px'}}>
           {this.state.photos.map(this.eachPhoto)}
         </div>
         <div style ={{clear: 'both'}}></div>
