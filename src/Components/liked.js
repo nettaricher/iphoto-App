@@ -12,7 +12,7 @@ componentDidMount() {
 
 render() {
     return (
-      <div>
+      <div style ={{backgroundColor: 'green'}}>
           liked
       </div>
     );

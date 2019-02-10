@@ -3,9 +3,12 @@ import React, { Component } from 'react'
 class Rated extends Component {
   constructor(props) {
     super(props)
-    this.state = { photos: [] }
+    this.state = {photos: []}
 
+    this.eachPhoto  = this.eachPhoto.bind(this)
+    this.add        = this.add.bind(this)
   }
+  
 componentDidMount() {
     const url = 'https://iphoto-app.herokuapp.com/photo/sortbyrate';
     fetch(url)
@@ -44,53 +47,65 @@ add({
     this.setState(prevState => ({
       photos: [
         ...prevState.photos, {
-        likes_array = likes_array,
-        rates_array = rates_array,
-        photoID     = photoID,
-        name        = name, 
-        URL         = URL, 
-        userID      = userID, 
-        likes       = likes,
-        num_of_rates= num_of_rates,
-        rates_sum   = rates_sum,
-        total_rate  = total_rate
+        //id: id !== null ? id : this.nextID(prevState.athletes),
+        likes_array:  likes_array,
+        rates_array:  rates_array,
+        photoID:      photoID,
+        name:         name, 
+        URL:          URL, 
+        userID:       userID, 
+        likes:        likes,
+        num_of_rates: num_of_rates,
+        rates_sum:    rates_sum,
+        total_rate:   total_rate
         }]
     }))
 }
 
-nextID(photos = []) {
-    let max = photos.reduce((prev, curr) => prev.id > curr.id ? prev.id : curr.id , 0)
-    return ++max
-}
+// nextID(photos = []) {
+//     let max = photos.reduce((prev, curr) => prev.id > curr.id ? prev.id : curr.id , 0)
+//     return ++max
+// }
+
 
 eachPhoto(photo, i) {   
     return (
-      <div>
-        <div style={ {width: '440px', border: '2px solid'} }>
-            <h2 style={ {background: '#E3E5E7',textAlign: 'center'} }>{ athlete.name } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ID: { athlete.id })</h2>
-            <p><b>Sport: </b>{ athlete.sport }</p>
-            <p><b>Date Of Birth: </b>{ dateOfBirth.getDate() }/{ dateOfBirth.getMonth() }/{ dateOfBirth.getFullYear() }</p>
-            <p><b>Gender: </b>{ athlete.gender }</p>
-            <hr></hr>
-            <div className="wrapper3">
-            <h4>Participates in tournaments:</h4>
-              { athlete.tours.map(this.eachTour) }
-            </div>
-        </div>
+      <div
+        key={ `container${i}` }
+        style = {{width: '380px', height: '380px', float: 'right', marginRight: '32px'}}
+      >
+        {/* <div style={ {width: '30px', height: '30px', float: 'right'} }>
+            <p><b>URL:         </b>{photo.URL}</p>
+            <p><b>likes array: </b>{photo.likes_array}</p>
+            <p><b>rates array: </b>{photo.rates_array}</p>
+            <p><b>photo id:    </b>{photo.photoID}</p>
+            <p><b>name:        </b>{photo.name}</p>
+            <p><b>userID:      </b>{photo.userID}</p>
+            <p><b>likes:       </b>{photo.likes}</p>
+            <p><b>num of rates:</b>{photo.num_of_rates}</p>
+            <p><b>rates sum:   </b>{photo.rates_sum}</p>
+            <p><b>total rate:  </b>{photo.total_rate}</p> */}
+
+
+
+
+            <img src = {photo.URL} style={{width: '100%', height: 'auto'}} alt = {photo.name}></img>
+        {/* </div> */}
       </div>
     );
 }
 
 render() {
     return (
-      <div>
-          Rated
+      <div style = {{width: '1300px', height: '1296px'}}>
+        <h2 style = {{color: '#1abc9c', fontFamily: 'ariel', textAlign: 'center', padding: '20px', fontSize: '30px'}}>Most Rated</h2>
+        <div style = {{paddingTop: '40px', paddingRight: '15px'}}>
           {this.state.photos.map(this.eachPhoto)}
+        </div>
+        <div style ={{clear: 'both'}}></div>
       </div>
     );
   }
 }
 
 export default Rated;
-
-//hii sagishul
