@@ -98,7 +98,7 @@ eachPhoto(photo, i) {
 render() {
     return (
       <div style = {{width: '1300px', height: '1296px', backgroundColor: 'pink'}}>
-        <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', padding: '60px', fontSize: '40px'}}>Most Rated</h2>
+        <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', padding: '60px', margin:'0px', fontSize: '40px'}}>Most Rated</h2>
         <div style = {{paddingTop: '40px', paddingRight: '100px'}}>
           {this.state.photos.map(this.eachPhoto)}
         </div>
