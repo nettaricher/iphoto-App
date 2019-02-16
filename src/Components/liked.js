@@ -75,7 +75,7 @@ class Liked extends Component {
 
   render() {
     return (
-      <div style = {{width: '1300px', height: '1296px', backgroundColor: '#eeeeee'}}>
+      <div style = {{width: '1300px', backgroundColor: '#eeeeee'}}>
         <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', padding: '60px', fontSize: '40px'}}>Most liked</h2>
         <div style = {{paddingTop: '40px', paddingRight: '100px'}}>
           {this.state.photos.map(this.eachPhoto)}
