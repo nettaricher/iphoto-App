@@ -11,7 +11,7 @@ class Liked extends Component {
   }
 
   componentDidMount() {
-    const url = 'https://iphoto-app.herokuapp.com/photo/sortbylikes';
+    const url = 'https://vast-inlet-95722.herokuapp.com/photo/sortbylikes';
     fetch(url)
     .then(res => res.json())
     .then(data => data.map(photo => 
