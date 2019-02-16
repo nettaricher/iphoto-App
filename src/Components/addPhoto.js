@@ -10,6 +10,7 @@ class addTour extends Component
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderForm = this.renderForm.bind(this)
+    this.renderAccepted = this.renderAccepted.bind(this)
   }
   handleSubmit(event) {
     event.preventDefault();

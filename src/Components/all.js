@@ -82,8 +82,8 @@ class All extends Component {
 
   render() {
     return (
-      <div style = {{width: '1300px', backgroundColor: '#eeeeee'}}>
-        <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', padding: '60px', fontSize: '40px'}}>COLLECTION</h2>
+      <div style = {{width: '1300px'}}>
+        <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', fontSize: '40px'}}>Collection</h2>
           {this.state.photos.map(this.eachPhoto)}
         <div style = {{clear: 'both'}}></div>
       </div>

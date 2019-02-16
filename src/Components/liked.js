@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Photo from './photo';
 
 class Liked extends Component {
   constructor(props) {
@@ -66,9 +66,15 @@ class Liked extends Component {
     return (
       <div
         key={ `container${i}` }
-        style = {{width: '300px', height: '300px', float: 'right', marginRight: '50px'}}
+        style = {{width: '300px', height: '300px',float: 'right', paddingTop: '40px', paddingRight: '100px'}}
       >
-          <img src = {photo.URL} style={{width: '100%', height: 'auto'}} alt = {photo.name}></img>
+        <Photo 
+          url = {photo.URL}
+          name = {photo.name}
+          id = {photo.photoID}
+          likes = {photo.likes}
+          rate = {photo.total_rate}
+          />
       </div>
     );
 }
@@ -76,10 +82,8 @@ class Liked extends Component {
   render() {
     return (
       <div style = {{width: '1300px', backgroundColor: '#eeeeee'}}>
-        <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', padding: '60px', fontSize: '40px'}}>Most liked</h2>
-        <div style = {{paddingTop: '40px', paddingRight: '100px'}}>
+        <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', fontSize: '40px'}}>Most liked</h2>
           {this.state.photos.map(this.eachPhoto)}
-        </div>
         <div style ={{clear: 'both'}}></div>
       </div>
     );

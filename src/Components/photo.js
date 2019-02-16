@@ -4,15 +4,14 @@ class Photo extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        editing: true
+        editing: true,
+        likes: this.props.likes
     }
+    this.put  = this.put.bind(this)
+    this.renderWithRate  = this.renderWithRate.bind(this)
+    this.renderWithoutRate  = this.renderWithoutRate.bind(this)
   }
 
-  changeRating( newRating ) {
-    this.setState({
-      rating: newRating
-    });
-}
 put() {
     const url = 'https://vast-inlet-95722.herokuapp.com/addlike/';
     const options = {
@@ -95,7 +94,7 @@ renderWithRate(){
           }}>
           </input></label>
           </div>
-          <span><b>{this.props.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}} onClick={() => {
+          <span><b>{this.state.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}} onClick={() => {
               const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id;
               const options = {
                 method: "PUT", // *GET, POST, PUT, DELETE, etc.
@@ -103,6 +102,7 @@ renderWithRate(){
               fetch(url, options).then(res => res.json())
               .then(res => {
                 console.log(res)
+                this.setState({likes: this.state.likes+1})
               })
               .catch(err => { console.error(err) })
           }
@@ -117,7 +117,7 @@ renderWithoutRate(){
           <div style={{float:'right', fontSize: '22px'}}>
           {this.props.rate}
           </div>
-          <span><b>{this.props.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}} onClick={() => {
+          <span><b>{this.state.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}} onClick={() => {
               const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id;
               const options = {
                 method: "PUT", // *GET, POST, PUT, DELETE, etc.
@@ -125,6 +125,7 @@ renderWithoutRate(){
               fetch(url, options).then(res => res.json())
               .then(res => {
                 console.log(res)
+                this.setState({likes: this.state.likes+1})
               })
               .catch(err => { console.error(err) })
           }

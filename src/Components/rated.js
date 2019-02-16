@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Photo from './photo';
 
 class Rated extends Component {
   constructor(props) {
@@ -47,7 +48,6 @@ add({
     this.setState(prevState => ({
       photos: [
         ...prevState.photos, {
-        //id: id !== null ? id : this.nextID(prevState.athletes),
         likes_array:  likes_array,
         rates_array:  rates_array,
         photoID:      photoID,
@@ -62,35 +62,20 @@ add({
     }))
   }
 
-// nextID(photos = []) {
-//     let max = photos.reduce((prev, curr) => prev.id > curr.id ? prev.id : curr.id , 0)
-//     return ++max
-// }
-
-
 eachPhoto(photo, i) {   
     return (
       <div
         key={ `container${i}` }
-        style = {{width: '300px', height: '300px', float: 'right', marginRight: '35px'}}
+        style = {{width: '300px', height: '300px',float: 'right', paddingTop: '40px', paddingRight: '100px'}}
       >
-        {/* <div style={ {width: '30px', height: '30px', float: 'right'} }>
-            <p><b>URL:         </b>{photo.URL}</p>
-            <p><b>likes array: </b>{photo.likes_array}</p>
-            <p><b>rates array: </b>{photo.rates_array}</p>
-            <p><b>photo id:    </b>{photo.photoID}</p>
-            <p><b>name:        </b>{photo.name}</p>
-            <p><b>userID:      </b>{photo.userID}</p>
-            <p><b>likes:       </b>{photo.likes}</p>
-            <p><b>num of rates:</b>{photo.num_of_rates}</p>
-            <p><b>rates sum:   </b>{photo.rates_sum}</p>
-            <p><b>total rate:  </b>{photo.total_rate}</p> */}
-
-
-
-
-            <img src = {photo.URL} style={{width: '100%', height: 'auto'}} alt = {photo.name}></img>
-        {/* </div> */}
+      <Photo
+                  url = {photo.URL}
+                  name = {photo.name}
+                  id = {photo.photoID}
+                  likes = {photo.likes}
+                  rate = {photo.total_rate}
+                  ratedZone = {true}
+      />
       </div>
     );
 }
@@ -98,10 +83,8 @@ eachPhoto(photo, i) {
 render() {
     return (
       <div style = {{width: '1300px'}}>
-        <h2 style = {{color: '#1abc9c', fontFamily: 'ariel', textAlign: 'center', padding: '20px', fontSize: '30px'}}>Most Rated</h2>
-        <div style = {{paddingTop: '40px', paddingRight: '100px'}}>
+        <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', fontSize: '40px'}}>Most Rated</h2>
           {this.state.photos.map(this.eachPhoto)}
-        </div>
         <div style ={{clear: 'both'}}></div>
       </div>
     );
