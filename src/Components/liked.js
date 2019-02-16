@@ -66,7 +66,7 @@ class Liked extends Component {
     return (
       <div
         key={ `container${i}` }
-        style = {{width: '300px', height: '300px', float: 'right', marginRight: '32px'}}
+        style = {{width: '300px', height: '300px', float: 'right', marginRight: '50px'}}
       >
           <img src = {photo.URL} style={{width: '100%', height: 'auto'}} alt = {photo.name}></img>
       </div>
@@ -76,8 +76,8 @@ class Liked extends Component {
   render() {
     return (
       <div style = {{width: '1300px', height: '1296px', backgroundColor: '#eeeeee'}}>
-        <h2 style = {{color: '#1abc9c', fontFamily: 'ariel', textAlign: 'center', padding: '20px', fontSize: '30px'}}>Most liked</h2>
-        <div style = {{paddingTop: '40px', paddingRight: '60px'}}>
+        <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', padding: '60px', fontSize: '40px'}}>Most liked</h2>
+        <div style = {{paddingTop: '40px', paddingRight: '100px'}}>
           {this.state.photos.map(this.eachPhoto)}
         </div>
         <div style ={{clear: 'both'}}></div>

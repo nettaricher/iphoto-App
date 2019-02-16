@@ -72,7 +72,7 @@ eachPhoto(photo, i) {
     return (
       <div
         key={ `container${i}` }
-        style = {{width: '300px', height: '300px', float: 'right', marginRight: '35px'}}
+        style = {{width: '300px', height: '300px', float: 'right', marginRight: '50px'}}
       >
         {/* <div style={ {width: '30px', height: '30px', float: 'right'} }>
             <p><b>URL:         </b>{photo.URL}</p>
@@ -97,8 +97,8 @@ eachPhoto(photo, i) {
 
 render() {
     return (
-      <div style = {{width: '1300px', height: '1296px'}}>
-        <h2 style = {{color: '#1abc9c', fontFamily: 'ariel', textAlign: 'center', padding: '20px', fontSize: '30px'}}>Most Rated</h2>
+      <div style = {{width: '1300px', height: '1296px', backgroundColor: 'pink'}}>
+        <h2 style = {{color: '#1abc9c', fontFamily: 'Francois One, sans-serif', textAlign: 'center', padding: '60px', fontSize: '40px'}}>Most Rated</h2>
         <div style = {{paddingTop: '40px', paddingRight: '100px'}}>
           {this.state.photos.map(this.eachPhoto)}
         </div>
