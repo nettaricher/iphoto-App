@@ -4,14 +4,16 @@ import mainPage from '../Components/mainPage'
 import addPhoto from '../Components/addPhoto'
 import Login from '../Components/Login'
 import Header from '../Header'
+import Register from '../Components/register'
 
 const ReactRouter = () => {
     return (
         <React.Fragment>
             <Header/>
             <Route exact path="/" component={mainPage}/>
-            <Route path="/addPhoto" component={addPhoto}/>
-            <Route path="/Login" component={Login}/>
+            <Route path="/addphoto" component={addPhoto}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/register" component={Register}/>
         </React.Fragment>
     )
 }
