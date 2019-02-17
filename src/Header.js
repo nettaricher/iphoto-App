@@ -61,7 +61,7 @@ class Header extends Component {
                         <NavLink exact to="/addPhoto" style={this.nonactive} activeStyle={this.active}>
                             ADD PHOTO
                         </NavLink>
-                        <NavLink exact to="/dafbadf" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/Login" style={this.nonactive} activeStyle={this.active}>
                             LOGIN
                         </NavLink>
                     </span>

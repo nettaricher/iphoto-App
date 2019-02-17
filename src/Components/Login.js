@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Photo extends Component
+class addTour extends Component
 {
   constructor(props) {
     super(props)
@@ -44,17 +44,14 @@ class Photo extends Component
     return(
       <div>
           <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
-          <div>Name:</div>
-            <input type="text" name='name' ref='name'/>
+          <div>Username:</div>
+            <input type="text" name='username' ref='username'/>
             <br/><br/>
-          <div>URL:</div>
-            <input type="text" size="50" name='url' ref='url'/>
-            <br/><br/>
-            <div>Description:</div>
-            <textarea rows="5" cols="50" type="text" name='desc' ref='desc'/>
+          <div>Password:</div>
+            <input type="text" name='password' ref='password'/>
             <br/><br/>
             <span>
-              <input type="submit" value="Submit"/>
+              <input type="submit" value="Login"/>
             </span>
           </form>
         </div>
@@ -64,4 +61,4 @@ class Photo extends Component
     return this.state.editing ? this.renderForm() : this.renderAccepted()
   }
 }
-export default Photo
+export default addTour
