@@ -6,7 +6,7 @@ class register extends Component
     super(props)
     this.state =  { 
                     editing: true,
-                    name: '', email: '', password: '', user: ''
+                    user: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -25,10 +25,9 @@ class register extends Component
     const obj = {   name:     this.refs.name.value,
                     email:    this.refs.email.value,
                     password: this.refs.pass.value,
-                    user:     this.state.user
+                    group:    this.state.user
                 }
-    console.log(obj)
-    const url = 'https://vast-inlet-95722.herokuapp.com/user';
+    const url = 'https://vast-inlet-95722.herokuapp.com/user/';
     const options = {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       credentials: "same-origin", // include, *same-origin, omit
@@ -64,18 +63,18 @@ class register extends Component
             <br/><br/>
             <label><input
                         type="radio"
-                        value="user"
-                        ref='USER'
-                        checked={this.state.user === "user"}
+                        value="USER"
+                        name='group'
+                        checked={this.state.user === "USER"}
                         onChange={this.handleChange}
                     />
                      USER
                      </label>&nbsp;
             <label><input
                         type="radio"
-                        value="photographer"
-                        ref='PHOTOGRAPHER'
-                        checked={this.state.user === "photographer"}
+                        value="PHOTOGRAPHER"
+                        name='group'
+                        checked={this.state.user === "PHOTOGRAPHER"}
                         onChange={this.handleChange}
                     />
                     PHOTOGRAPHER
