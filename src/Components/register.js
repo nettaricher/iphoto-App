@@ -10,8 +10,6 @@ class register extends Component
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.renderForm  = this.renderForm.bind(this)
-    this.renderAccepted = this.renderAccepted.bind(this)
   }
 
   handleChange(event) {
@@ -40,18 +38,10 @@ class register extends Component
     .then(res => {
       console.log(res)
       this.props.history.push("/");
-      this.setState({editing: false})
     })
     .catch(err => { console.error(err) })
   }
-  renderAccepted(){
-    return(
-      <div>
-        <Header/>
-      </div>
-    )
-  }
-  renderForm(){
+  render(){
     return(
       <div>
           <Header/>
@@ -90,9 +80,6 @@ class register extends Component
           </form>
         </div>
     )
-  }
-  render() {
-    return this.state.editing ? this.renderForm() : this.renderAccepted()
   }
 }
 export default register
