@@ -14,7 +14,7 @@ class Photo extends Component {
   }
   onStarClick(nextValue, prevValue, name) {
     this.setState({rating: nextValue});
-    const url = 'https://vast-inlet-95722.herokuapp.com/addrate/'+this.props.id+'/'+nextValue;
+    const url = 'https://vast-inlet-95722.herokuapp.com/addrate/'+this.props.id+'/'+nextValue+'/'+localStorage.getItem('userID');
     const options = {
       method: "PUT", // *GET, POST, PUT, DELETE, etc.
     }
