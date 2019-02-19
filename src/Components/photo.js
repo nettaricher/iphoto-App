@@ -13,7 +13,6 @@ class Photo extends Component {
     this.renderWithoutRate  = this.renderWithoutRate.bind(this)
   }
   onStarClick(nextValue, prevValue, name) {
-    this.setState({rating: nextValue});
     const url = 'https://vast-inlet-95722.herokuapp.com/addrate/'+this.props.id+'/'+nextValue+'/'+localStorage.getItem('userID')+'/'+localStorage.getItem('group');
     const options = {
       method: "PUT", // *GET, POST, PUT, DELETE, etc.
@@ -22,6 +21,7 @@ class Photo extends Component {
     .then(res => {
       console.log(res)
       this.setState({editing: false})
+      this.setState({rating: (nextValue+this.props.rates_sum)/ (this.props.num_of_rates+1)});
     })
     .catch(err => { console.error(err) })
   }
@@ -67,8 +67,8 @@ class Photo extends Component {
           name="rate2" 
           editing={false}
           starCount={5}
-          value={this.props.rate}
-        />{this.props.rate.toFixed(2)}
+          value={this.state.rating}
+        />{this.state.rating.toFixed(2)}
           </div>
           <span><b>{this.state.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}} onClick={() => {
               const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id+'/'+localStorage.getItem('userID');

@@ -75,6 +75,8 @@ class All extends Component {
           id = {photo.photoID}
           likes = {photo.likes}
           rate = {photo.total_rate}
+          rates_sum = {photo.rates_sum}
+          num_of_rates= {photo.num_of_rates}
           />
       </div>
     );
