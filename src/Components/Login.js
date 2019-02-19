@@ -32,6 +32,7 @@ class addTour extends Component
         localStorage.setItem('name',   res.name)
         localStorage.setItem('userID', res.userID)
         localStorage.setItem('email',  res.email)
+        localStorage.setItem('group',  res.group)
         this.props.history.push("/home");
       }
       else {
