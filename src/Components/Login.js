@@ -17,7 +17,7 @@ class addTour extends Component
     const obj = {   name: this.refs.username.value,
                     password: this.refs.password.value
                 }
-    const url = 'http://localhost:8080/login';
+    const url = 'https://vast-inlet-95722.herokuapp.com/login';
     const options = {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       credentials: "same-origin", // include, *same-origin, omit
