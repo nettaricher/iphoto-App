@@ -9,8 +9,6 @@ class Photo extends Component
                     url: '', name: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderForm = this.renderForm.bind(this)
-    this.renderAccepted = this.renderAccepted.bind(this)
   }
   handleSubmit(event) {
     event.preventDefault();
@@ -31,16 +29,12 @@ class Photo extends Component
     fetch(url, options).then(res => res.json())
     .then(res => {
       console.log(res)
-      this.setState({editing: false})
+      this.props.history.push("/profile");
     })
     .catch(err => { console.error(err) })
   }
-  renderAccepted(){
-    return(
-      <div>Success!</div>
-    )
-  }
-  renderForm(){
+
+  render(){
     return(
       <div>
           <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
@@ -59,9 +53,6 @@ class Photo extends Component
           </form>
         </div>
     )
-  }
-  render() {
-    return this.state.editing ? this.renderForm() : this.renderAccepted()
   }
 }
 export default Photo
