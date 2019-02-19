@@ -9,7 +9,6 @@ class Photo extends Component {
         likes: this.props.likes,
         rating: 0
     }
-    this.put  = this.put.bind(this)
     this.renderWithRate  = this.renderWithRate.bind(this)
     this.renderWithoutRate  = this.renderWithoutRate.bind(this)
   }
@@ -27,24 +26,13 @@ class Photo extends Component {
     .catch(err => { console.error(err) })
   }
   
-  put() {
-    const url = 'https://vast-inlet-95722.herokuapp.com/addlike/';
-    const options = {
-      method: "PUT", // *GET, POST, PUT, DELETE, etc.
-  }
-    fetch(url, options).then(res => res.json())
-    .then(res => {
-      console.log(res)
-    })
-    .catch(err => { console.error(err) })
-  }
   renderWithRate(){
     const { rating } = this.state;
     return (
         <div>
           <img src={this.props.url} style={{height: '220px',width: "100%"}} alt={this.props.name}></img>
           <span><b>{this.state.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}} onClick={() => {
-              const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id;
+              const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id+'/'+localStorage.getItem('userID');
               const options = {
                 method: "PUT", // *GET, POST, PUT, DELETE, etc.
             }
@@ -53,7 +41,9 @@ class Photo extends Component {
                 console.log(res)
                 this.setState({likes: this.state.likes+1})
               })
-              .catch(err => { console.error(err) })
+              .catch(err => { 
+                console.log(localStorage.getItem('userID'))
+                console.error(err) })
           }
           }></i>
           <div style={{float:'right', fontSize: '22px'}}>
@@ -81,7 +71,7 @@ class Photo extends Component {
         />{this.props.rate.toFixed(2)}
           </div>
           <span><b>{this.state.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}} onClick={() => {
-              const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id;
+              const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id+'/'+localStorage.getItem('userID');
               const options = {
                 method: "PUT", // *GET, POST, PUT, DELETE, etc.
             }
