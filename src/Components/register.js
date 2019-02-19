@@ -39,6 +39,7 @@ class register extends Component
     fetch(url, options).then(res => res.json())
     .then(res => {
       console.log(res)
+      this.props.history.push("/");
       this.setState({editing: false})
     })
     .catch(err => { console.error(err) })
@@ -47,7 +48,7 @@ class register extends Component
     return(
       <div>
         <Header/>
-        Success!</div>
+      </div>
     )
   }
   renderForm(){
