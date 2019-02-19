@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Header from '../Header'
 class Photo extends Component
 {
   constructor(props) {
@@ -37,6 +37,7 @@ class Photo extends Component
   render(){
     return(
       <div>
+        <Header/>
           <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
           <div>Name:</div>
             <input type="text" name='name' ref='name'/>

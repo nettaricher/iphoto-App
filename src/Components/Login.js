@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Header from '../Header'
 class addTour extends Component
 {
   constructor(props) {
@@ -43,6 +43,7 @@ class addTour extends Component
   renderAccepted(){
     return(
       <div>
+        <Header/>
         <h3 style = {{color: 'red', textAlign: 'center'}}>Invalid username/password</h3>
       <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
       <div>Username:</div>
@@ -61,6 +62,7 @@ class addTour extends Component
   renderForm(){
     return(
       <div>
+        <Header/>
           <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
           <div>Username:</div>
             <input type="text" name='username' ref='username'/>

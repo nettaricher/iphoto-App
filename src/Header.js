@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import { NavLink } from  "react-router-dom";
 import Background from "./images/header_bg.jpg"
 class Header extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            isAuthenticated: localStorage.getItem('userID'),
+        }
+        this.renderLogged  = this.renderLogged.bind(this)
+        this.renderLogin  = this.renderLogin.bind(this)
+    }  
     header = {
         position: 'relative',
         backgroundImage: `url(${Background})`,
@@ -43,7 +51,7 @@ class Header extends Component {
         marginRight: '20px',
         fontWeight: 'bold'
     }
-    render(){
+    renderLogged(){
         return(
             <div>
                 <div style={this.header}>
@@ -64,6 +72,23 @@ class Header extends Component {
                         <NavLink exact to="/profile" style={this.nonactive} activeStyle={this.active}>
                             PROFILE
                         </NavLink>
+                    </span>
+                </div>
+            </div>
+        );
+    }
+    renderLogin(){
+        return(
+            <div>
+                <div style={this.header}>
+                    <div id="logo" style={this.logo}>
+                        <h1><span style={{color:'white'}}>i</span><span style={{color:'#1edab5'}}>PHOTO</span><span style={{color:'white'}}>.</span></h1>
+                        <h3><span style={{color:'white'}}>Online photos album</span></h3>
+                    </div>
+                </div>
+                <div style={this.nav}>
+                    <span style={this.nav_a}>iPHOTO.</span>
+                    <span style={this.nav_b}>
                         <NavLink exact to="/" style={this.nonactive} activeStyle={this.active}>
                             LOGIN
                         </NavLink>
@@ -74,6 +99,11 @@ class Header extends Component {
                 </div>
             </div>
         );
+    }
+    render(){
+        if (this.state.isAuthenticated)
+            return this.renderLogged()
+        else return this.renderLogin()
     }
 }
 

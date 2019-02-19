@@ -4,13 +4,11 @@ import mainPage from '../Components/mainPage'
 import addPhoto from '../Components/addPhoto'
 import profile from '../Components/profile'
 import Login from '../Components/Login'
-import Header from '../Header'
 import Register from '../Components/register'
 
 const ReactRouter = () => {
     return (
         <React.Fragment>
-            <Header/>
             <Route exact path="/"   component={Login}/>
             <Route path="/register" component={Register}/>
             <Route path="/home"     component={mainPage}/>

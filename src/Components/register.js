@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Header from '../Header'
 class register extends Component
 {
   constructor(props) {
@@ -45,12 +45,15 @@ class register extends Component
   }
   renderAccepted(){
     return(
-      <div>Success!</div>
+      <div>
+        <Header/>
+        Success!</div>
     )
   }
   renderForm(){
     return(
       <div>
+          <Header/>
           <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
           <div>User Name:</div>
             <input type="text" name='name' ref='name'/>

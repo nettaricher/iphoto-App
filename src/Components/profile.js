@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Myphoto from './myphoto'
-
+import Header from '../Header'
 class Profile extends Component {
   constructor(props) {
     super(props)
@@ -98,6 +98,7 @@ add({
 render() {
     return (
         <div>
+          <Header/>
             <div style = {{textAlign: 'center'}}>
                 <h1>{this.state.name}</h1>
                 <h2>{this.state.email}</h2>
