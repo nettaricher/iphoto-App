@@ -55,7 +55,7 @@ class Header extends Component {
                 <div style={this.nav}>
                     <span style={this.nav_a}>iPHOTO.</span>
                     <span style={this.nav_b}>
-                        <NavLink exact to="/" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/home" style={this.nonactive} activeStyle={this.active}>
                             HOME
                         </NavLink>
                         <NavLink exact to="/addphoto" style={this.nonactive} activeStyle={this.active}>
@@ -64,7 +64,7 @@ class Header extends Component {
                         <NavLink exact to="/profile" style={this.nonactive} activeStyle={this.active}>
                             PROFILE
                         </NavLink>
-                        <NavLink exact to="/login" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/" style={this.nonactive} activeStyle={this.active}>
                             LOGIN
                         </NavLink>
                         <NavLink exact to="/register" style={this.nonactive} activeStyle={this.active}>

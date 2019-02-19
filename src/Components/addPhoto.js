@@ -16,7 +16,7 @@ class Photo extends Component
     event.preventDefault();
     const obj = {   name: this.refs.name.value,
                     URL: this.refs.url.value,
-                    userID: "1"
+                    userID: localStorage.getItem('userID')
                 }
     console.log(obj)
     const url = 'https://vast-inlet-95722.herokuapp.com/photo';

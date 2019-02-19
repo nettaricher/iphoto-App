@@ -11,11 +11,11 @@ const ReactRouter = () => {
     return (
         <React.Fragment>
             <Header/>
-            <Route exact path="/" component={mainPage}/>
-            <Route path="/addphoto" component={addPhoto}/>
-            <Route path="/profile" component={profile}/>
-            <Route path="/login" component={Login}/>
+            <Route exact path="/"   component={Login}/>
             <Route path="/register" component={Register}/>
+            <Route path="/home"     component={mainPage}/>
+            <Route path="/addphoto" component={addPhoto}/>
+            <Route path="/profile"  component={profile}/>
         </React.Fragment>
     )
 }

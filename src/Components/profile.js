@@ -5,7 +5,7 @@ class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        userID: 1,
+        userID: localStorage.getItem('userID'),
         name: null,
         email: null,
         photos: []
