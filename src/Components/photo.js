@@ -4,10 +4,16 @@ import StarRatingComponent from 'react-star-rating-component';
 class Photo extends Component {
   constructor(props) {
     super(props)
+    let rate
+    if (this.props.rate){
+      rate = parseFloat(this.props.rate)
+      rate = rate.toFixed(2)
+    }
+    else rate = parseInt('0')
     this.state = {
         editing: true,
         likes: this.props.likes,
-        rating: this.props.rate
+        rating: rate
     }
     this.renderWithRate  = this.renderWithRate.bind(this)
     this.renderWithoutRate  = this.renderWithoutRate.bind(this)
@@ -21,12 +27,13 @@ class Photo extends Component {
     .then(res => {
       console.log(res)
       this.setState({editing: false})
-      this.setState({rating: (nextValue+this.props.rates_sum)/ (this.props.num_of_rates+1)});
+      this.setState({rating: ((nextValue+this.props.rates_sum)/ (this.props.num_of_rates+1)).toFixed(2)});
     })
     .catch(err => { console.error(err) })
   }
   
   renderWithRate(){
+    let rate = parseFloat(this.state.rating)
     return (
         <div>
           <img src={this.props.url} style={{height: '220px',width: "100%"}} alt={this.props.name}></img>
@@ -49,7 +56,7 @@ class Photo extends Component {
             <StarRatingComponent 
               name={`rate${this.props.id}`}
               starCount={5}
-              value={this.state.rating}
+              value={rate}
               onStarClick={this.onStarClick.bind(this)}
             />{this.state.rating}
           </div>
@@ -58,6 +65,7 @@ class Photo extends Component {
       );
   }
   renderWithoutRate(){
+    let rate = parseFloat(this.state.rating)
     return (
         <div>
           <img src={this.props.url} style={{height: '220px',width: "100%"}} alt={this.props.name}></img>
@@ -67,8 +75,8 @@ class Photo extends Component {
           name={`rate${this.props.id}`}
           editing={false}
           starCount={5}
-          value={this.state.rating}
-        />{this.state.rating.toFixed(2)}
+          value={rate}
+        />{this.state.rating}
           </div>
           <span><b>{this.state.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}} onClick={() => {
               const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id+'/'+localStorage.getItem('userID');

@@ -6,8 +6,8 @@ class Profile extends Component {
     super(props)
     this.state = {
         userID: localStorage.getItem('userID'),
-        name: null,
-        email: null,
+        name: localStorage.getItem('name'),
+        email: localStorage.getItem('email'),
         photos: []
     }
     this.eachPhoto  = this.eachPhoto.bind(this)
@@ -16,14 +16,12 @@ class Profile extends Component {
   }
   
 componentDidMount() {
-    const url = 'https://vast-inlet-95722.herokuapp.com/user/' + this.state.userID;
+  let url
+  if ((localStorage.getItem('group') === 'PHOTOGRAPHER')||(localStorage.getItem('group') === 'USER')){
+    url = 'https://vast-inlet-95722.herokuapp.com/user/' + this.state.userID;
     fetch(url)
     .then(res => res.json())
     .then(data => { 
-        this.setState({name: data[0].name})
-        this.setState({email: data[0].email})
-        // console.log(name, email, password, group)
-        
         for(let i=1; i<data.length; i++)
         {
             this.add(
@@ -43,6 +41,30 @@ componentDidMount() {
         }
     })
     .catch(err => console.error(err))
+  }
+  else if (localStorage.getItem('group') === 'ADMIN'){
+    url = 'https://vast-inlet-95722.herokuapp.com/photo';
+    fetch(url)
+    .then(res => res.json())
+    .then(data => data.map(photo => 
+        this.add(
+        {
+          likes_array:  photo.likes_array, 
+          rates_array:  photo.rates_array, 
+          photoID:      photo.photoID,
+          name:         photo.name,
+          URL:          photo.URL,
+          userID:       photo.userID,
+          likes:        photo.likes,
+          num_of_rates: photo.num_of_rates,
+          rates_sum:    photo.rates_sum,
+          total_rate:   photo.total_rate
+
+        })
+    ))
+    .catch(err => console.error(err));
+  }
+
 }
 
 add({ 

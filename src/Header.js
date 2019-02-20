@@ -142,7 +142,7 @@ class Header extends Component {
         else if ((this.state.isAuthenticated)&&(this.state.group === 'PHOTOGRAPHER'))
             return this.renderLoggedPhotographer()
         else if ((this.state.isAuthenticated)&&(this.state.group === 'ADMIN'))
-            return this.renderLogin()
+            return this.renderLoggedUser()
         else return this.renderLogin()
     }
 }
