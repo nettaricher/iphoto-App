@@ -9,11 +9,11 @@ import Register from '../Components/register'
 const ReactRouter = () => {
     return (
         <React.Fragment>
-            <Route exact path="/"   component={Login}/>
-            <Route path="/register" component={Register}/>
-            <Route path="/home"     component={mainPage}/>
-            <Route path="/addphoto" component={addPhoto}/>
-            <Route path="/profile"  component={profile}/>
+            <Route exact path="/2018-2019/dcs/dev_275/"   component={Login}/>
+            <Route path="/2018-2019/dcs/dev_275/register" component={Register}/>
+            <Route path="/2018-2019/dcs/dev_275/home"     component={mainPage}/>
+            <Route path="/2018-2019/dcs/dev_275/addphoto" component={addPhoto}/>
+            <Route path="/2018-2019/dcs/dev_275/profile"  component={profile}/>
         </React.Fragment>
     )
 }
