@@ -37,7 +37,7 @@ class register extends Component
     fetch(url, options).then(res => res.json())
     .then(res => {
       console.log(res)
-      this.props.history.push("/");
+      this.props.history.push("/2018-2019/dcs/dev_275/");
     })
     .catch(err => { console.error(err) })
   }

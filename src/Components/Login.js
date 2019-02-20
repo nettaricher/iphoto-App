@@ -30,7 +30,7 @@ class addTour extends Component
         localStorage.setItem('userID', res.userID)
         localStorage.setItem('email',  res.email)
         localStorage.setItem('group',  res.group)
-        this.props.history.push("/home");
+        this.props.history.push("/2018-2019/dcs/dev_275/home");
       }
       else {
         this.setState({unAuthorized: true})
