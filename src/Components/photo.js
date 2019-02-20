@@ -87,9 +87,9 @@ class Photo extends Component {
       );
   }
   render() {
-    if (this.props.rate)
-      return this.renderWithoutRate()
-    else return this.renderWithRate()
+    if (this.props.withRate)
+      return this.renderWithRate()
+    else return this.renderWithoutRate()
   }
 }
 export default Photo;

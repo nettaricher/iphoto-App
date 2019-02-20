@@ -74,6 +74,7 @@ eachPhoto(photo, i) {
                   id = {photo.photoID}
                   likes = {photo.likes}
                   rate = {photo.total_rate}
+                  withRate = {false}
       />
       </div>
     );

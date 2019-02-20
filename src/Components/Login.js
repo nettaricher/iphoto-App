@@ -4,13 +4,10 @@ class addTour extends Component
 {
   constructor(props) {
     super(props)
-    this.state =  { 
-                    editing: true,
-                    url: '', name: ''
-    }
+    this.state = {unAuthorized: false}
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderForm = this.renderForm.bind(this)
-    this.renderAccepted = this.renderAccepted.bind(this)
+    this.renderUnAuth = this.renderUnAuth.bind(this);
+    this.renderLogin = this.renderLogin.bind(this);
   }
   handleSubmit(event) {
     event.preventDefault();
@@ -36,12 +33,12 @@ class addTour extends Component
         this.props.history.push("/home");
       }
       else {
-        this.setState({editing: false})
+        this.setState({unAuthorized: true})
       }
     })
     .catch(err => { console.error(err) })
   }
-  renderAccepted(){
+  renderUnAuth(){
     return(
       <div>
         <Header/>
@@ -51,35 +48,33 @@ class addTour extends Component
         <input type="text" name='username' ref='username'/>
         <br/><br/>
       <div>Password:</div>
-        <input type="text" name='password' ref='password'/>
+        <input type="password" name='password' ref='password'/>
         <br/><br/>
         <span>
           <input type="submit" value="Login"/>
         </span>
-      </form>
-    </div>
-    )
+      </form><br/><br/><br/><br/><br/><br/><br/>
+    </div>)
   }
-  renderForm(){
+  renderLogin(){
     return(
       <div>
         <Header/>
-          <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
-          <div>Username:</div>
-            <input type="text" name='username' ref='username'/>
-            <br/><br/>
-          <div>Password:</div>
-            <input type="text" name='password' ref='password'/>
-            <br/><br/>
-            <span>
-              <input type="submit" value="Login"/>
-            </span>
-          </form>
-        </div>
-    )
+      <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
+      <div>Username:</div>
+        <input type="text" name='username' ref='username'/>
+        <br/><br/>
+      <div>Password:</div>
+        <input type="password" name='password' ref='password'/>
+        <br/><br/>
+        <span>
+          <input type="submit" value="Login"/>
+        </span>
+      </form><br/><br/><br/><br/><br/><br/><br/>
+    </div>)
   }
-  render() {
-    return this.state.editing ? this.renderForm() : this.renderAccepted()
+  render(){
+    return this.state.unAuthorized ? this.renderUnAuth() : this.renderLogin() 
   }
 }
 export default addTour

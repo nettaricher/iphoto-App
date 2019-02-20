@@ -47,19 +47,18 @@ class register extends Component
           <Header/>
           <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
           <div>User Name:</div>
-            <input type="text" name='name' ref='name'/>
+            <input type="text" name='name' ref='name' required/>
             <br/><br/>
           <div>Email:</div>
-            <input type="text" size="30" name='email' ref='email'/>
+            <input type="email" size="30" name='email' ref='email' required/>
             <br/><br/>
             <div>Password:</div>
-            <input type="text" name='pass' ref='pass'/>
+            <input type="password" name='pass' ref='pass' required/>
             <br/><br/>
             <label><input
                         type="radio"
                         value="USER"
                         name='group'
-                        checked={this.state.user === "USER"}
                         onChange={this.handleChange}
                     />
                      USER
@@ -68,7 +67,6 @@ class register extends Component
                         type="radio"
                         value="PHOTOGRAPHER"
                         name='group'
-                        checked={this.state.user === "PHOTOGRAPHER"}
                         onChange={this.handleChange}
                     />
                     PHOTOGRAPHER
@@ -77,7 +75,7 @@ class register extends Component
             <span>
               <input type="submit" value="Submit"/>
             </span>
-          </form>
+          </form><br/><br/><br/><br/><br/><br/>
         </div>
     )
   }

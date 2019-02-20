@@ -86,7 +86,7 @@ uploadImages = () => {
 		          	{ this.state.message? <p>{this.state.message}</p>: ''}
 		          	<br/><br/><br/>
 		          	<button value="Submit" onClick={this.uploadImages}>Submit</button>
-	            <br/>
+                <br/><br/><br/><br/><br/><br/><br/><br/>
 		       </div>
         </div>
         </div>

@@ -77,6 +77,7 @@ class All extends Component {
           total_rate = {photo.total_rate}
           rates_sum = {photo.rates_sum}
           num_of_rates= {photo.num_of_rates}
+          withRate = {true}
           />
       </div>
     );
