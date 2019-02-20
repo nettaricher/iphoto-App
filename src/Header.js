@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from  "react-router-dom";
-import Background from "./images/header_bg.jpg"
+import Background from "./images/header_bg.jpg";
 class Header extends Component {
     constructor(props) {
         super(props)
@@ -71,6 +71,12 @@ class Header extends Component {
                         </NavLink>
                         <NavLink exact to="/profile" style={this.nonactive} activeStyle={this.active}>
                             PROFILE
+                        </NavLink>
+                        <NavLink exact to="/" style={this.nonactive} activeStyle={this.active} onClick={()=>{
+                            localStorage.clear()
+                            this.setState({isAuthenticated: null})
+                        }}>
+                            LOGOUT
                         </NavLink>
                     </span>
                 </div>

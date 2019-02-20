@@ -7,7 +7,7 @@ class Photo extends Component {
     this.state = {
         editing: true,
         likes: this.props.likes,
-        rating: 0
+        rating: this.props.rate
     }
     this.renderWithRate  = this.renderWithRate.bind(this)
     this.renderWithoutRate  = this.renderWithoutRate.bind(this)
@@ -27,7 +27,6 @@ class Photo extends Component {
   }
   
   renderWithRate(){
-    const { rating } = this.state;
     return (
         <div>
           <img src={this.props.url} style={{height: '220px',width: "100%"}} alt={this.props.name}></img>
@@ -48,12 +47,13 @@ class Photo extends Component {
           }></i>
           <div style={{float:'right', fontSize: '22px'}}>
             <StarRatingComponent 
-              name="rate" 
+              name={`rate${this.props.id}`}
               starCount={5}
-              value={rating}
+              value={this.state.rating}
               onStarClick={this.onStarClick.bind(this)}
-            />{rating}
-      </div>
+            />{this.state.rating}
+          </div>
+          <div style={{color:'#e2a004',float:'right', fontSize: '15px', fontWeight:'bold', paddingTop:'5px'}}>Rate ></div>
         </div>
       );
   }
@@ -64,7 +64,7 @@ class Photo extends Component {
           <div style={{float:'right', fontSize: '22px'}}>
           
           <StarRatingComponent 
-          name="rate2" 
+          name={`rate${this.props.id}`}
           editing={false}
           starCount={5}
           value={this.state.rating}
@@ -87,7 +87,9 @@ class Photo extends Component {
       );
   }
   render() {
-    return this.state.editing ? this.renderWithRate() : this.renderWithoutRate()
+    if (this.props.rate)
+      return this.renderWithoutRate()
+    else return this.renderWithRate()
   }
 }
 export default Photo;

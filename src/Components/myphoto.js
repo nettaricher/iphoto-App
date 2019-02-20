@@ -41,7 +41,7 @@ class myPhoto extends Component {
         </div>
       );
   }
-  rendernothing(){return (<div></div>)}
+  rendernothing(){return (<span></span>)}
   render() {
     return this.state.editing ? this.rendernothing() : this.renderWithoutRate()
   }

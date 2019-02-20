@@ -80,7 +80,7 @@ add({
 }
  eachPhoto(photo, i) { 
      return (
-      <div
+      <span
         key={ `container${i}` }
         style = {{width: '300px', height: '300px',float: 'right', paddingTop: '40px', paddingRight: '100px'}}
       >
@@ -91,7 +91,7 @@ add({
           likes = {photo.likes}
           rate = {photo.total_rate}
           />
-      </div>
+      </span>
     )
  }
 
