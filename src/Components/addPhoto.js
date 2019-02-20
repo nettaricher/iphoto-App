@@ -29,6 +29,11 @@ class Photo extends Component
 
 
 uploadImages = () => { 
+  if(this.state.images.length === 0)
+    {
+      console.error("Must select photo!")
+      return null
+    }
   const uploaders = this.state.images.map(image => {
   const data = new FormData();
   data.append("image", image, image.name);
@@ -74,20 +79,16 @@ uploadImages = () => {
         <Header/>
         <div>
 	        	<br/>
-	        	<div style = {{textAlign: 'center'}}>
+	        	<div style = {{textAlign: 'center', fontFamily: 'Francois One, sans-serif'}}>
         			<h1>Image Uploader</h1>
-	        		<div>
-                <label>Name: <input type="text" name='name' ref='name'/></label>
-		        		<input type="file" onChange={this.selectFiles} multiple/>
-		        	</div>
-		        	{ this.state.message? <p>{this.state.message}</p>: ''}
-		        	<br/><br/><br/>
-		        	<div>
-		            	<button value="Submit" onClick={this.uploadImages}>Submit</button>
-		        	</div>
-	            </div>
+                <label>Name<br/><input type="text" name='name' ref='name' required/></label><br/><br/>
+		        		<input type="file" onChange={this.selectFiles} multiple style = {{width: '200px', marginLeft: '23px'}} required/>
+		          	{ this.state.message? <p>{this.state.message}</p>: ''}
+		          	<br/><br/><br/>
+		          	<button value="Submit" onClick={this.uploadImages}>Submit</button>
 	            <br/>
-		    </div>
+		       </div>
+        </div>
         </div>
     )
   }
