@@ -64,13 +64,13 @@ class Header extends Component {
                 <div style={this.nav}>
                     <span style={this.nav_a}>iPHOTO.</span>
                     <span style={this.nav_b}>
-                        <NavLink exact to="/home" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/2018-2019/dcs/dev_275/home" style={this.nonactive} activeStyle={this.active}>
                             HOME
                         </NavLink>
-                        <NavLink exact to="/profile" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/2018-2019/dcs/dev_275/profile" style={this.nonactive} activeStyle={this.active}>
                             PROFILE
                         </NavLink>
-                        <NavLink exact to="/" style={this.nonactive} activeStyle={this.active} onClick={()=>{
+                        <NavLink exact to="/2018-2019/dcs/dev_275/" style={this.nonactive} activeStyle={this.active} onClick={()=>{
                             localStorage.clear()
                             this.setState({isAuthenticated: null})
                         }}>
@@ -93,16 +93,16 @@ class Header extends Component {
                 <div style={this.nav}>
                     <span style={this.nav_a}>iPHOTO.</span>
                     <span style={this.nav_b}>
-                        <NavLink exact to="/home" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/2018-2019/dcs/dev_275/home" style={this.nonactive} activeStyle={this.active}>
                             HOME
                         </NavLink>
-                        <NavLink exact to="/addphoto" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/2018-2019/dcs/dev_275/addphoto" style={this.nonactive} activeStyle={this.active}>
                             ADD PHOTO
                         </NavLink>
-                        <NavLink exact to="/profile" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/2018-2019/dcs/dev_275/profile" style={this.nonactive} activeStyle={this.active}>
                             PROFILE
                         </NavLink>
-                        <NavLink exact to="/" style={this.nonactive} activeStyle={this.active} onClick={()=>{
+                        <NavLink exact to="/2018-2019/dcs/dev_275/" style={this.nonactive} activeStyle={this.active} onClick={()=>{
                             localStorage.clear()
                             this.setState({isAuthenticated: null})
                         }}>
@@ -125,10 +125,10 @@ class Header extends Component {
                 <div style={this.nav}>
                     <span style={this.nav_a}>iPHOTO.</span>
                     <span style={this.nav_b}>
-                        <NavLink exact to="/" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/2018-2019/dcs/dev_275/" style={this.nonactive} activeStyle={this.active}>
                             LOGIN
                         </NavLink>
-                        <NavLink exact to="/register" style={this.nonactive} activeStyle={this.active}>
+                        <NavLink exact to="/2018-2019/dcs/dev_275/register" style={this.nonactive} activeStyle={this.active}>
                             REGISTER
                         </NavLink>
                     </span>
