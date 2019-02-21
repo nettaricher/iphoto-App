@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import StarRatingComponent from 'react-star-rating-component';
+import StarRatingComponent  from 'react-star-rating-component';
 
 class myPhoto extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-        editing: false,
-    }
-    this.renderWithoutRate  = this.renderWithoutRate.bind(this)
-  }  
+    this.state = { editing: false }
 
+    this.renderWithoutRate  = this.renderWithoutRate.bind(this)
+    this.rendernothing      = this.rendernothing.bind(this)
+  }  
 
   renderWithoutRate(){
     return (
@@ -24,24 +23,25 @@ class myPhoto extends Component {
                 this.setState({editing:true})
             })
             .catch(err => { console.error(err) })
-        }
-        }></i>
-          <img src={this.props.url} style={{height: '220px',width: "100%"}} alt={this.props.name}></img>
-          <div style={{float:'right', fontSize: '22px'}}>
-          
-          <StarRatingComponent 
-          name="rate2" 
-          editing={false}
-          starCount={5}
-          value={this.props.rate}
-        />{this.props.rate.toFixed(2)}
-          </div>
-          <span><b>{this.props.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}}
-          ></i>
+              }
+            }></i>
+            <img src={this.props.url} style={{height: '220px',width: "100%"}} alt={this.props.name}></img>
+            <div style={{float:'right', fontSize: '22px'}}>
+              <StarRatingComponent 
+                name="rate2" 
+                editing={false}
+                starCount={5}
+                value={this.props.rate}
+              />{this.props.rate.toFixed(2)}
+            </div>
+            <span><b>{this.props.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}}
+            ></i>
         </div>
-      );
+    );
   }
+
   rendernothing(){return (<span></span>)}
+
   render() {
     return this.state.editing ? this.rendernothing() : this.renderWithoutRate()
   }

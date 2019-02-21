@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../Header'
+
 class register extends Component
 {
   constructor(props) {
@@ -33,48 +34,48 @@ class register extends Component
           "Content-Type": "application/json"
       }, 
       body: JSON.stringify(obj)
-  }
+    }
     fetch(url, options).then(res => res.json())
     .then(res => {
-      console.log(res)
       this.props.history.push("/2018-2019/dcs/dev_275/");
     })
     .catch(err => { console.error(err) })
   }
+
   render(){
     return(
-      <div>
+        <div>
           <Header/>
           <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
-          <div>User Name:</div>
-            <input type="text" name='name' ref='name' required/>
-            <br/><br/>
-          <div>Email:</div>
-            <input type="email" size="30" name='email' ref='email' required/>
-            <br/><br/>
-            <div>Password:</div>
-            <input type="password" name='pass' ref='pass' required/>
-            <br/><br/>
-            <label><input
+            <div>User Name:</div>
+              <input type="text" name='name' ref='name' required/>
+              <br/><br/>
+            <div>Email:</div>
+              <input type="email" size="30" name='email' ref='email' required/>
+              <br/><br/>
+              <div>Password:</div>
+              <input type="password" name='pass' ref='pass' required/>
+              <br/><br/>
+              <label><input
                         type="radio"
                         value="USER"
                         name='group'
                         onChange={this.handleChange}
-                    />
-                     USER
-                     </label>&nbsp;
-            <label><input
+                      />
+                      USER
+                      </label>&nbsp;
+              <label><input
                         type="radio"
                         value="PHOTOGRAPHER"
                         name='group'
                         onChange={this.handleChange}
-                    />
-                    PHOTOGRAPHER
-                    </label>&nbsp;
-            <br/><br/>
-            <span>
-              <input type="submit" value="Submit"/>
-            </span>
+                      />
+                      PHOTOGRAPHER
+                      </label>&nbsp;
+              <br/><br/>
+              <span>
+                <input type="submit" value="Submit"/>
+              </span>
           </form><br/><br/><br/><br/><br/><br/>
         </div>
     )

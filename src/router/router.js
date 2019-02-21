@@ -1,9 +1,9 @@
-import React from 'react'
-import {Route} from 'react-router-dom'
+import React    from 'react'
+import {Route}  from 'react-router-dom'
 import mainPage from '../Components/mainPage'
 import addPhoto from '../Components/addPhoto'
-import profile from '../Components/profile'
-import Login from '../Components/Login'
+import profile  from '../Components/profile'
+import Login    from '../Components/Login'
 import Register from '../Components/register'
 
 const ReactRouter = () => {
@@ -17,5 +17,4 @@ const ReactRouter = () => {
         </React.Fragment>
     )
 }
-
 export default ReactRouter

@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { NavLink } from  "react-router-dom";
-import Background from "./images/header_bg.jpg";
+import Background  from "./images/header_bg.jpg";
+
 class Header extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isAuthenticated:    localStorage.getItem('userID'),
-            group:              localStorage.getItem('group')
+            isAuthenticated: localStorage.getItem('userID'),
+            group:           localStorage.getItem('group')
         }
         this.renderLoggedPhotographer  = this.renderLoggedPhotographer.bind(this)
-        this.renderLogin  = this.renderLogin.bind(this)
+        this.renderLoggedUser          = this.renderLoggedUser.bind(this)
+        this.renderLogin               = this.renderLogin.bind(this)
     }  
     header = {
         position: 'relative',
@@ -52,6 +54,7 @@ class Header extends Component {
         marginRight: '20px',
         fontWeight: 'bold'
     }
+
     renderLoggedUser(){
         return(
             <div>
@@ -81,6 +84,7 @@ class Header extends Component {
             </div>
         );
     }
+
     renderLoggedPhotographer(){
         return(
             <div>
@@ -113,6 +117,7 @@ class Header extends Component {
             </div>
         );
     }
+
     renderLogin(){
         return(
             <div>
@@ -136,6 +141,7 @@ class Header extends Component {
             </div>
         );
     }
+
     render(){
         if ((this.state.isAuthenticated)&&(this.state.group === 'USER'))
             return this.renderLoggedUser()
@@ -146,5 +152,4 @@ class Header extends Component {
         else return this.renderLogin()
     }
 }
-
 export default Header

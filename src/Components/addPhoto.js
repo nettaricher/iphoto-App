@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Header from '../Header'
-import axios from 'axios';
-const BASE_URL = 'https://vast-inlet-95722.herokuapp.com/';
+import axios  from 'axios'
+const BASE_URL = 'https://vast-inlet-95722.herokuapp.com/'    //web service url
 
 class Photo extends Component
 {
@@ -14,7 +14,8 @@ class Photo extends Component
                     imageUrls: [],
                     message: ''
     }
-    this.selectFiles = this.selectFiles.bind(this);
+    this.selectFiles  = this.selectFiles.bind(this)
+    this.uploadImages = this.uploadImages.bind(this)
   }
 
   selectFiles = (event) => {
@@ -25,52 +26,49 @@ class Photo extends Component
     images = images.filter(image => image.name.match(/\.(jpg|jpeg|png|gif)$/))
     let message = `${images.length} valid image(s) selected`
     this.setState({images, message })
-}
+  }
 
-
-uploadImages = () => { 
-  if(this.state.images.length === 0)
+  uploadImages = () => { 
+    if(this.state.images.length === 0)
     {
       console.error("Must select photo!")
       return null
     }
-  const uploaders = this.state.images.map(image => {
-  const data = new FormData();
-  data.append("image", image, image.name);
-   
-  // Make an AJAX upload request using Axios
-  return axios.post(BASE_URL + 'upload', data)
-  .then(response => {
-  this.setState({
-  imageUrls: [ response.data.imageUrl, ...this.state.imageUrls ]
-  });
-  })
-  });
-   
-  // Once all the files are uploaded 
-  axios.all(uploaders).then(() => {
-  console.log('done');
-  console.log(this.state.imageUrls)
-  const obj = {   name: this.refs.name.value,
-                  URL: BASE_URL + this.state.imageUrls[0],
-                  userID: localStorage.getItem('userID')
-  }
-  const url = BASE_URL+'photo';
-  const options = {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-        "Content-Type": "application/json"
-    }, 
-    body: JSON.stringify(obj)
-}
-  fetch(url, options).then(res => res.json())
-  .then(res => {
-    console.log(res)
-    this.props.history.push("/2018-2019/dcs/dev_275/profile");
-  })
-  .catch(err => { console.error(err) })
-  }).catch(err => alert(err.message));
+    const uploaders = this.state.images.map(image => {
+      const data = new FormData();
+      data.append("image", image, image.name);
+      // Make an AJAX upload request using Axios
+      return axios.post(BASE_URL + 'upload', data)
+      .then(response => {
+        this.setState({
+          imageUrls: [ response.data.imageUrl, ...this.state.imageUrls ]
+        });
+      })
+   });
+    // Once all the files are uploaded 
+    axios.all(uploaders).then(() => {
+      console.log('done');
+      const obj = {   name: this.refs.name.value,
+                      URL: BASE_URL + this.state.imageUrls[0],
+                      userID: localStorage.getItem('userID')
+                  }
+      const url = BASE_URL+'photo';
+      const options = {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify(obj)
+      }
+      fetch(url, options)
+      .then(res => res.json())
+      .then(res => {
+        this.props.history.push("/2018-2019/dcs/dev_275/profile");
+      })
+      .catch(err => { console.error(err) })
+    })
+    .catch(err => alert(err.message));
   }
 
   render(){
@@ -87,9 +85,9 @@ uploadImages = () => {
 		          	<br/><br/><br/>
 		          	<button value="Submit" onClick={this.uploadImages}>Submit</button>
                 <br/><br/><br/><br/><br/><br/><br/><br/>
-		       </div>
+		        </div>
         </div>
-        </div>
+      </div>
     )
   }
 }

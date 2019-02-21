@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Photo from './photo';
 
-
 class All extends Component {
   constructor(props) {
     super(props)
@@ -28,7 +27,6 @@ class All extends Component {
           num_of_rates: photo.num_of_rates,
           rates_sum:    photo.rates_sum,
           total_rate:   photo.total_rate
-
         })
     ))
     .catch(err => console.error(err));
@@ -81,7 +79,7 @@ class All extends Component {
           />
       </div>
     );
-}
+  }
 
   render() {
     return (
@@ -93,5 +91,4 @@ class All extends Component {
     );
   }
 }
-
 export default All;

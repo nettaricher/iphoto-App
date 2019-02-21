@@ -1,25 +1,19 @@
 import React, { Component } from 'react'
 import Header from '../Header'
-import Rated from '../Components/rated'
-import Liked from '../Components/liked'
-import All from '../Components/all'
-// import Team from '../Components/team'
+import Rated  from '../Components/rated'
+import Liked  from '../Components/liked'
+import All    from '../Components/all'
 
 class mainPage extends Component {
-componentDidMount() {
-
-}
-
-render() {
-    return (
-      <div>
-        <Header/>
-        <Rated/>
-        <Liked/>
-        <All/>
-        {/* <Team/> */}
-      </div>
-    );
+  render() {
+      return (
+        <div>
+          <Header/>
+          <Rated/>
+          <Liked/>
+          <All/>
+        </div>
+      );
   }
 }
 

@@ -78,7 +78,7 @@ class Liked extends Component {
           />
       </div>
     );
-}
+  }
 
   render() {
     return (
@@ -90,5 +90,4 @@ class Liked extends Component {
     );
   }
 }
-
 export default Liked;

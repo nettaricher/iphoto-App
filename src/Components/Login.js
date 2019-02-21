@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import Header from '../Header'
-class addTour extends Component
+
+class Login extends Component
 {
   constructor(props) {
     super(props)
     this.state = {unAuthorized: false}
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderUnAuth = this.renderUnAuth.bind(this);
-    this.renderLogin = this.renderLogin.bind(this);
+    this.renderLogin  = this.renderLogin.bind(this);
   }
+
   handleSubmit(event) {
     event.preventDefault();
     const obj = {   name: this.refs.username.value,
@@ -22,7 +25,7 @@ class addTour extends Component
           "Content-Type": "application/json"
       }, 
       body: JSON.stringify(obj)
-  }
+    }
     fetch(url, options).then(res => res.json())
     .then(res => {
       if (res){
@@ -38,43 +41,48 @@ class addTour extends Component
     })
     .catch(err => { console.error(err) })
   }
+
   renderUnAuth(){
     return(
       <div>
         <Header/>
         <h3 style = {{color: 'red', textAlign: 'center'}}>Invalid username/password</h3>
-      <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
-      <div>Username:</div>
-        <input type="text" name='username' ref='username'/>
-        <br/><br/>
-      <div>Password:</div>
-        <input type="password" name='password' ref='password'/>
-        <br/><br/>
-        <span>
-          <input type="submit" value="Login"/>
-        </span>
-      </form><br/><br/><br/><br/><br/><br/><br/>
-    </div>)
+        <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
+          <div>Username:</div>
+          <input type="text" name='username' ref='username'/>
+          <br/><br/>
+          <div>Password:</div>
+          <input type="password" name='password' ref='password'/>
+          <br/><br/>
+          <span>
+            <input type="submit" value="Login"/>
+          </span>
+        </form><br/><br/><br/><br/><br/><br/><br/>
+      </div>
+    )
   }
+
   renderLogin(){
     return(
       <div>
         <Header/>
-      <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
-      <div>Username:</div>
-        <input type="text" name='username' ref='username'/>
-        <br/><br/>
-      <div>Password:</div>
-        <input type="password" name='password' ref='password'/>
-        <br/><br/>
-        <span>
-          <input type="submit" value="Login"/>
-        </span>
-      </form><br/><br/><br/><br/><br/><br/><br/>
-    </div>)
+        <form style={{marginTop:'50px', textAlign: 'center', fontFamily: 'Francois One, sans-serif'}} onSubmit={this.handleSubmit}>
+          <div>Username:</div>
+          <input type="text" name='username' ref='username'/>
+          <br/><br/>
+          <div>Password:</div>
+          <input type="password" name='password' ref='password'/>
+          <br/><br/>
+          <span>
+            <input type="submit" value="Login"/>
+          </span>
+        </form><br/><br/><br/><br/><br/><br/><br/>
+      </div>
+    )
   }
+  
   render(){
     return this.state.unAuthorized ? this.renderUnAuth() : this.renderLogin() 
   }
 }
-export default addTour
+export default Login

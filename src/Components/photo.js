@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import StarRatingComponent from 'react-star-rating-component';
+import StarRatingComponent  from 'react-star-rating-component';
 
 class Photo extends Component {
   constructor(props) {
@@ -15,9 +15,11 @@ class Photo extends Component {
         likes: this.props.likes,
         rating: rate
     }
-    this.renderWithRate  = this.renderWithRate.bind(this)
+    this.renderWithRate     = this.renderWithRate.bind(this)
     this.renderWithoutRate  = this.renderWithoutRate.bind(this)
+    this.onStarClick        = this.onStarClick.bind(this)
   }
+
   onStarClick(nextValue, prevValue, name) {
     const url = 'https://vast-inlet-95722.herokuapp.com/addrate/'+this.props.id+'/'+nextValue+'/'+localStorage.getItem('userID')+'/'+localStorage.getItem('group');
     const options = {
@@ -25,7 +27,6 @@ class Photo extends Component {
     }
     fetch(url, options).then(res => res.json())
     .then(res => {
-      console.log(res)
       this.setState({editing: false})
       this.setState({rating: ((nextValue+this.props.rates_sum)/ (this.props.num_of_rates+1)).toFixed(2)});
     })
@@ -41,29 +42,28 @@ class Photo extends Component {
               const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id+'/'+localStorage.getItem('userID');
               const options = {
                 method: "PUT", // *GET, POST, PUT, DELETE, etc.
-            }
+              }
               fetch(url, options).then(res => res.json())
               .then(res => {
-                console.log(res)
                 this.setState({likes: this.state.likes+1})
               })
               .catch(err => { 
-                console.log(localStorage.getItem('userID'))
                 console.error(err) })
-          }
-          }></i>
-          <div style={{float:'right', fontSize: '22px'}}>
-            <StarRatingComponent 
-              name={`rate${this.props.id}`}
-              starCount={5}
-              value={rate}
-              onStarClick={this.onStarClick.bind(this)}
-            />{this.state.rating}
-          </div>
-          <div style={{color:'#e2a004',float:'right', fontSize: '15px', fontWeight:'bold', paddingTop:'5px'}}>Rate ></div>
+              }
+            }></i>
+            <div style={{float:'right', fontSize: '22px'}}>
+              <StarRatingComponent 
+                name={`rate${this.props.id}`}
+                starCount={5}
+                value={rate}
+                onStarClick={this.onStarClick.bind(this)}
+              />{this.state.rating}
+            </div>
+            <div style={{color:'#e2a004',float:'right', fontSize: '15px', fontWeight:'bold', paddingTop:'5px'}}>Rate ></div>
         </div>
-      );
+    );
   }
+
   renderWithoutRate(){
     let rate = parseFloat(this.state.rating)
     return (
@@ -72,28 +72,28 @@ class Photo extends Component {
           <div style={{float:'right', fontSize: '22px'}}>
           
           <StarRatingComponent 
-          name={`rate${this.props.id}`}
-          editing={false}
-          starCount={5}
-          value={rate}
-        />{this.state.rating}
+            name={`rate${this.props.id}`}
+            editing={false}
+            starCount={5}
+            value={rate}
+          />{this.state.rating}
           </div>
           <span><b>{this.state.likes}</b>&nbsp;</span><i className="far fa-thumbs-up" style = {{fontSize: '30px'}} onClick={() => {
               const url = 'https://vast-inlet-95722.herokuapp.com/addlike/'+this.props.id+'/'+localStorage.getItem('userID');
               const options = {
                 method: "PUT", // *GET, POST, PUT, DELETE, etc.
-            }
+              }
               fetch(url, options).then(res => res.json())
               .then(res => {
-                console.log(res)
                 this.setState({likes: this.state.likes+1})
               })
               .catch(err => { console.error(err) })
-          }
-          }></i>
+             } 
+            }></i>
         </div>
       );
   }
+
   render() {
     if (this.props.withRate)
       return this.renderWithRate()
